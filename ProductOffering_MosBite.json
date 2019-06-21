@@ -1,0 +1,450 @@
+{
+	"productOffering": {
+		"primaryIdentifier": "S00300",
+		"versionNumber": "A.1",
+		"name": "Mosbite",
+		"description": "Mosbite Covers Zika",
+		"effectiveStartDate": "1979-12-31T18:30:00Z",
+		"effectiveEndDate": "2030-12-31T18:30:00Z",
+		"toolVersion": "5.1.0.0",
+		"offeringType": "CUSTOMEROFFERING",
+		"canBeCloned": "Y",
+		"isTemplate": "N",
+		"LBU": {
+			"distributingLOB": "Thailand",
+			"identifier": "1"
+		},
+		"transactionContext": {
+			"transactionContextID": "1",
+			"transaction": "ALL",
+			"transactionRole": "ANY",
+			"transactionChannel": "ALL",
+			"lbuRef": "1"
+		},
+		"productDisplayBehaviour": {
+			"transactionRef": "1",
+			"visibleInFrontCatalog": "Y",
+			"productGroupName": "Health",
+			"productDisplayName": "Mosbite"
+		},
+		"salesPartner": {
+			"channel": [
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "PRUDENTIAL"
+				},
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "PRUDENTIAL_TH"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "SCB_TH"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "AGENCY_TH"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "TBANK"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "TBANK_TH"
+				}
+			]
+		},
+		"attribute": [
+			{
+				"name": "annualPremium",
+				"dataType": {
+					"numberType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "OUTPUT",
+						"displayName": "Annual Premium",
+						"default": {
+							"number": {
+							}
+						}
+					}
+				}
+			},
+			{
+				"name": "paymentFrequency",
+				"dataType": {
+					"stringType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "true",
+						"displayIndex": "1",
+						"visibleInSummary": "false",
+						"type": "INPUT",
+						"displayName": "Payment Frequency",
+						"default": {
+							"string": "Annual"
+						}
+					},
+					"productAttributeValue": {
+						"stringValue": {
+							"displayName": "Annual",
+							"displayIndex": "1",
+							"value": "1"
+						}
+					}
+				}
+			},
+			{
+				"name": "maxSumAssured",
+				"dataType": {
+					"numberType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "INPUT",
+						"displayName": "Max Sum Assured",
+						"default": {
+							"number": {
+							}
+						}
+					}
+				}
+			},
+			{
+				"name": "planName",
+				"dataType": {
+					"numberType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "INPUT",
+						"displayName": "Max Sum Assured",
+						"default": {
+							"number": {
+							}
+						}
+					}
+				}
+			}
+		],
+		"components": [
+			{
+				"Identifier": "C002",
+				"productCode": "S00302",
+				"name": "Zika",
+				"relationshipTypeName": "RIDER",
+				"behaviour": {
+					"transactionContextRef": "1",
+					"displayIndex": "2",
+					"displayName": "Zika",
+					"isViewable": "true",
+					"minimum": "1",
+					"default": "1",
+					"maximum": "1"
+				}
+			},
+			{
+				"Identifier": "C003",
+				"productCode": "S00303",
+				"name": "Dengue",
+				"relationshipTypeName": "RIDER",
+				"behaviour": {
+					"transactionContextRef": "1",
+					"displayIndex": "3",
+					"isViewable": "true",
+					"displayName": "Dengue",
+					"minimum": "1",
+					"default": "1",
+					"maximum": "1"
+				}
+			},
+			{
+				"Identifier": "C004",
+				"productCode": "S00304",
+				"name": "RISK",
+				"relationshipTypeName": "INTERNAL",
+				"behaviour": {
+					"transactionContextRef": "1",
+					"displayIndex": "4",
+					"isViewable": "false",
+					"displayName": "RISK",
+					"minimum": "1",
+					"default": "1",
+					"maximum": "1"
+				}
+			}
+		],
+		"productAvailabilityRules": {
+			"rule": {
+				"if": {
+					"conditions": {
+						"and-constraint-connective": {
+							"condition": {
+								"literal-restriction": {
+									"componentCode": "S00304",
+									"componentAttribute": "Age",
+									"evaluator": "greaterThan",
+									"rhs": "15"
+								}
+							},
+							"or-constraint-connective": {
+								"condition": [
+									{
+										"literal-restriction": {
+											"componentCode": "S00304",
+											"componentAttribute": "ResidentStatus",
+											"evaluator": "==",
+											"rhs": "Citizens"
+										}
+									},
+									{
+										"literal-restriction": {
+											"componentCode": "S00304",
+											"componentAttribute": "ResidentStatus",
+											"evaluator": "==",
+											"rhs": "PR"
+										}
+									}
+								]
+							}
+						}
+					},
+					"statements": {
+					}
+				}
+			}
+		},
+		"insuredObject": {
+			"name": "DUMMY",
+			"identifier": "1",
+			"type": "PERSON",
+			"coverage": [
+				{
+					"name": "Zika EVENT",
+					"eventType": "ILLNESS",
+					"identifier": "COV1",
+					"riderRef": "S00302",
+					"coverageSelectionRule": {
+					},
+					"indemnity": {
+						"name": "ZikaBenefit",
+						"identifier": "C001",
+						"indemnityAddition": "CUMMULATIVE",
+						"indemnityType": "Simple",
+						"compute": {
+							"attributes": {
+								"item": {
+									"id": "1",
+									"componentCode": "S00302",
+									"name": "maximumSumAssured",
+									"type": "OUTPUT",
+									"value": "1500"
+								}
+							}
+						}
+					}
+				},
+				{
+					"name": "Dengue EVENT",
+					"eventType": "ILLNESS",
+					"identifier": "COV2",
+					"riderRef": "S00303",
+					"coverageSelectionRule": {
+					},
+					"indemnity": {
+						"name": "DengueBenifit",
+						"identifier": "C002",
+						"indemnityAddition": "CUMMULATIVE",
+						"indemnityType": "Simple",
+						"compute": {
+							"attributes": {
+								"item": {
+									"id": "1",
+									"componentCode": "S00303",
+									"name": "maximumSumAssured",
+									"type": "OUTPUT",
+									"value": "3000"
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"computes": {
+			"paymentType": "PREMIUM",
+			"compute": {
+				"attributes": {
+					"item": {
+						"id": "1",
+						"componentCode": "THIS",
+						"name": "planName",
+						"type": "INPUT"
+					}
+				},
+				"value": {
+				},
+				"formula": {
+				},
+				"function": {
+					"input": [
+						"PlanName",
+						"RateTable"
+					],
+					"name": "F_Calculate_Premium"
+				},
+				"rule": {
+				},
+				"code": {
+				},
+				"rateTable": {
+					"header": {
+						"item": [
+							{
+								"id": "1",
+								"value": "Plan Name"
+							},
+							{
+								"id": "2",
+								"value": "Total"
+							},
+							{
+								"id": "3",
+								"value": "Dengue Benefit"
+							},
+							{
+								"id": "4",
+								"value": "Zika Benefit"
+							},
+							{
+								"id": "4",
+								"value": "Premium"
+							}
+						]
+					},
+					"row": [
+						{
+							"item": [
+								"Plan 2000",
+								"3000",
+								"2000",
+								"1000",
+								"37.74"
+							]
+						},
+						{
+							"item": [
+								"Plan 2500",
+								"3750",
+								"2500",
+								"1250",
+								"45.28"
+							]
+						},
+						{
+							"item": [
+								"Plan 3000",
+								"4500",
+								"3000",
+								"1500",
+								"53.77"
+							]
+						}
+					]
+				}
+			}
+		},
+		"transactionFlow": {
+			"transaction": {
+				"transactionRef": "1",
+				"step": {
+					"name": "CreateProposal",
+					"description": "CreateProposal",
+					"eventTriggerAction": "START",
+					"attributeContext": {
+						"item": [
+							{
+								"componentCode": "SAMPLE",
+								"name": "SAMPLE",
+								"type": "INPUT"
+							},
+							{
+								"componentCode": "SAMPLE",
+								"name": "SAMPLE",
+								"type": "INPUT"
+							}
+						]
+					},
+					"milestone": {
+						"milestoneDisplayCode": "INPROGRESS",
+						"milestoneTimeout": "1000"
+					},
+					"jeopardy": {
+						"actionType": {
+						},
+						"jeopardyQueue": {
+						},
+						"jeopardyMessageName": {
+						}
+					},
+					"downstreamActions": {
+						"WorkflowTask": {
+						},
+						"workflowAction": {
+						},
+						"workflowParameters": {
+						},
+						"workflowResponse": {
+						}
+					},
+					"nextEvent": {
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,239 @@
+{
+	"productOffering": {
+		"primaryIdentifier": "S00304",
+		"versionNumber": "A.1",
+		"name": "Risk",
+		"description": "Risk - All Products Risk criteria defined in this product",
+		"effectiveStartDate": "1979-12-31T18:30:00Z",
+		"effectiveEndDate": "2030-12-31T18:30:00Z",
+		"toolVersion": "5.1.0.0",
+		"offeringType": "SIMPLE",
+		"canBeCloned": "Y",
+		"isTemplate": "N",
+		"LBU": {
+			"distributingLOB": "Thailand",
+			"identifier": "1"
+		},
+		"transactionContext": {
+			"transactionContextID": "1",
+			"transaction": "ALL",
+			"transactionRole": "ANY",
+			"transactionChannel": "ALL",
+			"lbuRef": "1"
+		},
+		"productDisplayBehaviour": {
+			"transactionRef": "1",
+			"visibleInFrontCatalog": "N",
+			"productGroupName": "Health",
+			"productDisplayName": "Risk"
+		},
+		"salesPartner": {
+			"channel": [
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "PRUDENTIAL"
+				},
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "PRUDENTIAL_TH"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "SCB_TH"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "AGENCY_TH"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "TBANK"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "TBANK_TH"
+				}
+			]
+		},
+		"attribute": [
+			{
+				"name": "life entry Minimum Age",
+				"dataType": {
+					"intType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "INPUT",
+						"displayName": "life entry Minimum Age",
+						"default": {
+							"int": {
+							}
+						}
+					}
+				}
+			},
+			{
+				"name": "gender",
+				"dataType": {
+					"stringType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "2",
+						"visibleInSummary": "true",
+						"type": "INPUT",
+						"displayName": "gender",
+						"default": {
+							"string": {
+							}
+						}
+					},
+					"productAttributeValue": [
+						{
+							"stringValue": {
+								"displayName": "Male",
+								"displayIndex": "1",
+								"value": "M"
+							}
+						},
+						{
+							"stringValue": {
+								"displayName": "Female",
+								"displayIndex": "2",
+								"value": "F"
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "ResidentStatus",
+				"dataType": {
+					"stringType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "false",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "INPUT",
+						"displayName": "Resident Status",
+						"default": {
+							"string": "1"
+						}
+					},
+					"productAttributeValue": [
+						{
+							"stringValue": {
+								"displayName": "Citizens",
+								"displayIndex": "1",
+								"value": "1"
+							}
+						},
+						{
+							"stringValue": {
+								"displayName": "Permanent Residence",
+								"displayIndex": "2",
+								"value": "2"
+							}
+						},
+						{
+							"stringValue": {
+								"displayName": "Work Permit",
+								"displayIndex": "3",
+								"value": "3"
+							}
+						}
+					]
+				}
+			}
+		],
+		"insuredObject": {
+			"name": "DUMMY",
+			"identifier": "1",
+			"type": "PERSON"
+		},
+		"transactionFlow": {
+			"transaction": {
+				"transactionRef": "1",
+				"step": {
+					"name": "CreateProposal",
+					"description": "CreateProposal",
+					"eventTriggerAction": "START",
+					"attributeContext": {
+						"item": [
+							{
+								"componentCode": "S004",
+								"name": "AGE",
+								"type": "INPUT"
+							},
+							{
+								"componentCode": "S004",
+								"name": "GENDER",
+								"type": "INPUT"
+							}
+						]
+					},
+					"milestone": {
+						"milestoneDisplayCode": "INPROGRESS",
+						"milestoneTimeout": "1000"
+					},
+					"jeopardy": {
+						"actionType": {
+						},
+						"jeopardyQueue": {
+						},
+						"jeopardyMessageName": {
+						}
+					},
+					"downstreamActions": {
+						"WorkflowTask": {
+						},
+						"workflowAction": {
+						},
+						"workflowParameters": {
+						},
+						"workflowResponse": {
+						}
+					},
+					"nextEvent": {
+					}
+				}
+			}
+		}
+	}
+}

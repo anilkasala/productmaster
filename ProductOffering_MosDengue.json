@@ -1,0 +1,245 @@
+{
+	"productOffering": {
+		"primaryIdentifier": "S00303",
+		"versionNumber": "A.1",
+		"name": "Dengue Benefit",
+		"description": "Dengue ILLNESS Benefit Product",
+		"effectiveStartDate": "1979-12-31T18:30:00Z",
+		"effectiveEndDate": "2030-12-31T18:30:00Z",
+		"toolVersion": "5.1.0.0",
+		"offeringType": "RIDER",
+		"canBeCloned": "Y",
+		"isTemplate": "N",
+		"LBU": {
+			"distributingLOB": "Thailand",
+			"identifier": "1"
+		},
+		"transactionContext": {
+			"transactionContextID": "1",
+			"transaction": "ALL",
+			"transactionRole": "ANY",
+			"transactionChannel": "ALL",
+			"lbuRef": "1"
+		},
+		"productDisplayBehaviour": {
+			"transactionRef": "1",
+			"visibleInFrontCatalog": "Y",
+			"productGroupName": "Health",
+			"productDisplayName": "Dengue Benefit"
+		},
+		"salesPartner": {
+			"channel": [
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "PRUDENTIAL"
+				},
+				{
+					"name": "UOB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "PRUDENTIAL_TH"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "SCB",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "SCB_TH"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "SCB"
+				},
+				{
+					"name": "AGENCY",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "AGENCY_TH"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "EN",
+					"channelId": "TBANK"
+				},
+				{
+					"name": "TBANK",
+					"lbuRef": "1",
+					"language": "THAI",
+					"channelId": "TBANK_TH"
+				}
+			]
+		},
+		"attribute": [
+			{
+				"name": "BasicPremium",
+				"dataType": {
+					"numberType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "true",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "OUTPUT",
+						"displayName": "Basic Premium",
+						"default": {
+							"string": {
+							}
+						}
+					}
+				}
+			},
+			{
+				"name": "MaxSumAssured",
+				"dataType": {
+					"numberType": {
+					}
+				},
+				"behaviour": {
+					"transactionContextRef": "1",
+					"display": {
+						"hidden": "true",
+						"displayIndex": "1",
+						"visibleInSummary": "true",
+						"type": "OUTPUT",
+						"displayName": "Max Sum Assured",
+						"default": {
+							"number": "3000"
+						}
+					}
+				}
+			}
+		],
+		"insuredObject": {
+			"name": "DUMMY",
+			"identifier": "1",
+			"type": "PERSON"
+		},
+		"computes": {
+			"paymentType": "PREMIUM",
+			"compute": {
+				"attributes": {
+				},
+				"value": {
+				},
+				"formula": {
+				},
+				"function": {
+					"input": [
+						{
+						},
+						{
+						}
+					],
+					"name": {
+					}
+				},
+				"rule": {
+				},
+				"code": {
+				},
+				"rateTable": {
+					"header": {
+						"item": [
+							{
+								"id": "1",
+								"value": "Plan"
+							},
+							{
+								"id": "3",
+								"value": "Benefit"
+							},
+							{
+								"id": "4",
+								"value": "premium"
+							}
+						]
+					},
+					"row": [
+						{
+							"item": [
+								"Plan 2000",
+								"2000",
+								"37.74"
+							]
+						},
+						{
+							"item": [
+								"Plan 2500",
+								"2500",
+								"45.28"
+							]
+						},
+						{
+							"item": [
+								"Plan 3000",
+								"3000",
+								"53.77"
+							]
+						}
+					]
+				}
+			}
+		},
+		"transactionFlow": {
+			"transaction": {
+				"transactionRef": "1",
+				"step": {
+					"name": "CreateProposal",
+					"description": "CreateProposal",
+					"eventTriggerAction": "START",
+					"attributeContext": {
+						"item": [
+							{
+								"componentCode": "S004",
+								"name": "AGE",
+								"type": "INPUT"
+							},
+							{
+								"componentCode": "S004",
+								"name": "GENDER",
+								"type": "INPUT"
+							}
+						]
+					},
+					"milestone": {
+						"milestoneDisplayCode": "INPROGRESS",
+						"milestoneTimeout": "1000"
+					},
+					"jeopardy": {
+						"actionType": {
+						},
+						"jeopardyQueue": {
+						},
+						"jeopardyMessageName": {
+						}
+					},
+					"downstreamActions": {
+						"WorkflowTask": {
+						},
+						"workflowAction": {
+						},
+						"workflowParameters": {
+						},
+						"workflowResponse": {
+						}
+					},
+					"nextEvent": {
+					}
+				}
+			}
+		}
+	}
+}
